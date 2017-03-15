@@ -57,7 +57,7 @@ def set_windows(img):
                  xy_window=(128, 96), xy_overlap=(0.5, 0.5))
     windows_list.extend(windows)
     windows = slide_window(img, x_start_stop=[256, 1024], y_start_stop=[410, 570],
-                  xy_window=(96, 64), xy_overlap=(0.75, 0.5))
+                  xy_window=(96, 64), xy_overlap=(0.5, 0.5))
     windows_list.extend(windows)
     windows = slide_window(img, x_start_stop=[320, 960], y_start_stop=[416, 512],
                  xy_window=(64, 48), xy_overlap=(0., 0.5))
