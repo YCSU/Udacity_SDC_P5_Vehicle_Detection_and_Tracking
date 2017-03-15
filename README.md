@@ -28,7 +28,7 @@ The goals / steps of this project are the following:
 ### Running the code
 The project includes the following files:
 * main.py - pipeline for detecting cars. See the comments in the file for explanation  
-* utils.py - functions including creating features for classification, generating sliding windows, and draw boxes around detected cars
+* utils.py - functions including creating features for classification, generating sliding windows, and drawing boxes around the detected cars
 * explore_cspace.py- explore different color spaces with 3D plots
 * visualize_hog.py - visualize the hog features
 * project_video_outpu.mp4 - the output video with detected cars
