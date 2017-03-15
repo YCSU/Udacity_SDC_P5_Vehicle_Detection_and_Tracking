@@ -31,7 +31,7 @@ The project includes the following files:
 * utils.py - functions including creating features for classification, generating sliding windows, and drawing boxes around the detected cars
 * explore_cspace.py- explore different color spaces with 3D plots
 * visualize_hog.py - visualize the hog features
-* project_video_outpu.mp4 - the output video with detected cars
+* project_video_output.mp4 - the output video with detected cars
 * project_video_output_final.mp4 - implemented with detected lane lines from the fouth project
 * README.md - the file reading now
 
@@ -39,18 +39,30 @@ To launch the script,
 ```
 python main.py
 ```
-## Selecting features to train the classifier 
-###Histogram of Oriented Gradients (HOG)
-
-
+## Selecting features to train a classifier
+### Histogram of Oriented Gradients (HOG)
 ![][image1]
 ![][image2]
 ![][image3]
 ![][image4]
 ![][image5]
 ![][image6]
+### Choosing a model and parameters
+
+## Sliding Window Search
+### Choosing sliding windows
 ![][image7]
+### detection example
 ![][image8]
+
+## Video Implementation
+Here's a [link to my video result](./project_video_output.mp4) and Here's a [link to my video result](./project_video_output_final.mp4)
+
+### Remove false positivs
+
+
+
+
 ![][image9]
 ![][image10]
 ![][image11]
