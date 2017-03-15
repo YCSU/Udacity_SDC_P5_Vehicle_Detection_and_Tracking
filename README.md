@@ -39,7 +39,7 @@ To launch the script,
 ```
 python main.py
 ```
-## Selecting features to train a classifier
+## Select features to train a classifier
 ### Histogram of Oriented Gradients (HOG)
 ![][image1]
 ![][image2]
@@ -47,10 +47,10 @@ python main.py
 ![][image4]
 ![][image5]
 ![][image6]
-### Choosing a model and parameters
+### Choose a model and parameters
 
 ## Sliding Window Search
-### Choosing sliding windows
+### Choose sliding windows
 ![][image7]
 ### detection example
 ![][image8]
