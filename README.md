@@ -45,6 +45,8 @@ For training a classifier, we need to decide what features to be fed into the mo
 
 The spatial features is extracted in bin_spatial() (line 13-20 in utils.py). The image is resized to 32x32 and unravel to a one-dimensional vector. The color histograms is extracted in color_hist() (line 23-34 in utils.py). Each channel is binned into 32 bins. The HOG features is extracted in get_hog_features() (line 37-53 in utils.py) with orientations=6, pixels_per_cell=(8, 8) and cells_per_block=(2, 2). These feature are combined (line 56-100 in utils.py) which form a feature vector with length=32x32x3+32x3+7x7x2x2x6=4344.
 
+### Choose a model and parameters
+
 ### Examples of Histogram of Oriented Gradients (HOG), color histograms, and spatial features
 The following example uses HLS color space and the parameters mentioned above:
 
@@ -59,7 +61,6 @@ An example of non-cars.
 ![][image6]
 
 
-### Choose a model
 
 ## Sliding Window Search
 ### Choose sliding windows
