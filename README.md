@@ -79,7 +79,7 @@ The detection pipeline is the following. We resize the image picked by each slid
 ![][image8]
 
 ## Video Implementation
-Here's [a link to my result for detecting cars in the video](./project_video_output.mp4) and here's [another link to my video result combining lane and car detection](./project_video_output_final.mp4). The pipeline for processing the video is similar to the one for the image. However, to remove the false pistives, we store the heap maps from frame to frame in a queue, and sum up the eight consecutive heat maps in a queue to form a final heat map. Pixels that are activated less than nine times in the fnal heat map are ignord  (line 34-45 and line 150 in main.py). 
+Here's [a link to my result for detecting cars in the video](./project_video_output.mp4) and here's [another link to my video result combining lane and car detection](./project_video_output_final.mp4). The pipeline for processing the video is similar to the one for the image. However, to remove the false pistives, we store the heat maps from frame to frame in a queue, and sum up the eight consecutive heat maps in a queue to form a final heat map. Pixels that are activated less than nine times in the final heat map are ignord  (line 34-45 and line 150 in main.py). 
 
 ### Remove false positivs
 Here is an example of removing false positives. The images below are eight consecutive frames and the corresponding heat maps.
