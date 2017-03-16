@@ -35,10 +35,15 @@ The project includes the following files:
 * project_video_output_final.mp4 - implemented with detected lane lines from the fouth project
 * README.md - the file reading now
 
-To launch the script, 
+To launch the script, run
+```
+python untils.py
+```
+to train the classifier and run
 ```
 python main.py
 ```
+to process the video.
 
 ## Select features and train a classifier
 For training a classifier, we need to decide what features to be fed into the model. I explored the histogram of oriented gradients (HOG) and also different color spaces (in explore_cspace.py and visualize_hog.py). HLS color space is chosen to be the main color space. We use not only the HOG features but also the spatial features and color histograms.
@@ -70,7 +75,7 @@ To detect cars in the image, we employ a sliding window search (line 48-66 in ma
 ![][image7]
 
 ### Detection example
-The detection pipeline is the following. We resize the image picked by each sliding window to 64x64, extract features, normalize it, and feed it into the classifier (line 69-97 in main.py). To minimize the false positives, we implement the heat map technique introduced in the lecture (line 15-45 in main.py). First, we define that the pixels winthin the window in which a car is detected are activated. we notice that, for pixels representing a car, they are usually acvtivated several times, so pixels only activated once are regearded as false positives and are ignored (line 34-45 and line 141 in main.py). Using the label() function from scipy.ndimage.measurements, we redraw the boxs around the pixels that are activated more than one time (line 192-205 in utils.py). An example is shown below.
+The detection pipeline is the following. We resize the image picked by each sliding window to 64x64, extract features, normalize it, and feed it into the classifier (line 69-97 in main.py). To minimize the false positives, we implement the heat map technique introduced in the lecture (line 15-45 in main.py). First, we define that the pixels within the window in which a car is detected are activated. we notice that, for pixels representing a car, they are usually acvtivated several times, so pixels only activated once are regearded as false positives and are ignored (line 34-45 and line 141 in main.py). Using the label() function from scipy.ndimage.measurements, we redraw the boxs around the pixels that are activated more than one time (line 192-205 in utils.py). An example is shown below.
 ![][image8]
 
 ## Video Implementation
