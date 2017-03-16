@@ -66,8 +66,10 @@ An example of non-cars.
 ## Sliding Window Search
 ### Choose sliding windows
 To detect cars in the image, we employ a sliding window search (line 48-66 in main.py, line 143-179 in utils.py). The ranges and scales to search are determined by eye-balling the positions and sizes of the cars in the videos. There are totally 173 windows.
+
 ![][image7]
-### detection example
+
+### Detection example
 The detection pipeline is the following. We resize the image picked by each sliding window to 64x64, extract features, normalize it, and feed it into the classifier (line 69-97 in main.py). To minimize the false positives, we implement the heat map technique introduced in the lecture (line 15-45). First, we define that the pixels winthin the window in which a car is detected are activated. we notice that, for pixels representing a car, they are usually acvtivated several times, so pixels only activated once are regearded as false positives and are ignored (line 34-45 and line 141 in main.py). Using the label() function from scipy.ndimage.measurements, we redraw the boxs around the pixels that are activated more than one time (line 192-205 in utils.py). An example is shown below.
 ![][image8]
 
@@ -85,3 +87,7 @@ The final result by drawing the boxes around the region detected.
 ![][image11]
 
 ## Discussion
+The current pipeline works in good lighting conditions and clear weather. However, for a dark night or a snowy day, the classifier probably needs to be retrained because it relies heavily on the HOG features generated from the L channel, and those features might not be useful under those conditions.
+
+Another potential improvement is the efficiency of extracting the HOG features. The sub-sampling mentioned in the lectures can be implemented to speed up the processing frame rate.
+
