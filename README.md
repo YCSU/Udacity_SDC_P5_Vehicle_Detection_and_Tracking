@@ -68,15 +68,20 @@ An example of non-cars.
 To detect cars in the image, we employ a sliding window search (line 48-66 in main.py, line 143-179 in utils.py). The ranges and scales to search are determined by eye-balling the positions and sizes of the cars in the videos. There are totally 173 windows.
 ![][image7]
 ### detection example
-The detection pipeline is the following. We resize the image picked by each sliding window to 64x64, extract features, normalize it, and feed it into the classifier (line 69-97 in main.py). To minimize the false positives, we implement the heat map technique introduced in the lecture (line 15-45). First, we define that the pixels winthin the window in which a car is detected are activated. we notice that for pixels representing a car, they are usually acvtivated several times, so pixels only activated once are regearded as false positives and are ignored. We redraw the box around pixels that are activated more than one time. An example is shown below.
+The detection pipeline is the following. We resize the image picked by each sliding window to 64x64, extract features, normalize it, and feed it into the classifier (line 69-97 in main.py). To minimize the false positives, we implement the heat map technique introduced in the lecture (line 15-45). First, we define that the pixels winthin the window in which a car is detected are activated. we notice that, for pixels representing a car, they are usually acvtivated several times, so pixels only activated once are regearded as false positives and are ignored (line 34-45 and line 141 in main.py). Using the label() function from scipy.ndimage.measurements, we redraw the boxs around the pixels that are activated more than one time (line 192-205 in utils.py). An example is shown below.
 ![][image8]
 
 ## Video Implementation
-Here's a [link to my video result](./project_video_output.mp4) and Here's a [link to my video result](./project_video_output_final.mp4)
+Here's [a link to my result for detecting cars in the video](./project_video_output.mp4) and here's [another link to my video result combining lane and car detection](./project_video_output_final.mp4). The pipeline for processing the video is similar to the one for the image. However, to remove the false pistives, we store the heap maps from frame to frame in a queue, and sum up the eight consecutive heat maps in a queue to form a final heat map. Pixels that are activated less than nine times in the fnal heat map are ignord  (line 34-45 and line 150 in main.py). 
 
 ### Remove false positivs
+Here is an example of removing false positives. The images below are eight consecutive frames and the corresponding heat maps.
 ![][image9]
+
+By combining the heat maps and ignoring pixels activated less than nine times, the label() function from scipy.ndimage.measurements detects two clusters of pixels.
 ![][image10]
+
+The final result by drawing the boxes around the region detected.
 ![][image11]
 
 ## Discussion
