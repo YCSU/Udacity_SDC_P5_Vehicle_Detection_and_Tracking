@@ -249,17 +249,17 @@ if __name__ == "__main__":
     with open("svm_model.pkl", "bw") as f:
         pickle.dump(clf, f)
 
-    #for ssize in (16, 32):
-    #    for hist_bins in (16, 32):
-    #        for orient in (6, 8, 10):
-    #            for cell_per_block in (2, 4):
-    #                X = extract_features(img_paths, cspace='HLS', spatial_size=(ssize, ssize), hist_bins=hist_bins, hog_channel=1, orient=orient, cell_per_block=cell_per_block)
-    #                y = np.concatenate([np.ones(len(cars)), np.zeros(len(noncars))])
-    #                X_scaler = StandardScaler().fit(X)
-    #                scaled_X = X_scaler.transform(X)
-     #               X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
-     #               clf = LinearSVC()
-     #               clf.fit(X_train, y_train)
-     #               print("spatial_size={}, hist_bins={}, orient={}, cell_per_block={}".format(ssize, hist_bins, orient, cell_per_block))
-     #               print("training acc: ", clf.score(X_train, y_train))
-     #               print("testing acc: ", clf.score(X_test, y_test))
+    for ssize in (16, 32):
+        for hist_bins in (16, 32):
+            for orient in (6, 8, 10):
+                for cell_per_block in (2, 4):
+                    X = extract_features(img_paths, cspace='HLS', spatial_size=(ssize, ssize), hist_bins=hist_bins, hog_channel=1, orient=orient, cell_per_block=cell_per_block)
+                    y = np.concatenate([np.ones(len(cars)), np.zeros(len(noncars))])
+                    X_scaler = StandardScaler().fit(X)
+                    scaled_X = X_scaler.transform(X)
+                    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42, stratify=y)
+                    clf = LinearSVC()
+                    clf.fit(X_train, y_train)
+                    print("spatial_size={}, hist_bins={}, orient={}, cell_per_block={}".format(ssize, hist_bins, orient, cell_per_block))
+                    print("training acc: ", clf.score(X_train, y_train))
+                    print("testing acc: ", clf.score(X_test, y_test))
